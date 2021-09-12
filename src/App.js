@@ -1,8 +1,19 @@
+import {
+  StyledApp,
+  MainPage
+} from './StyleApp'
+
+import FunctionBar from './components/FunctionBar/FunctionBar'
+import ImageOverview from './components/ImageOverview/ImageOverview'
+
 function App() {
   return (
-    <div className="App">
-      Hello World
-    </div>
+    <StyledApp>
+      <FunctionBar/>
+      <MainPage>
+        <ImageOverview/>
+      </MainPage>
+    </StyledApp>
   );
 }
 
