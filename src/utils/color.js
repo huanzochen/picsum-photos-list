@@ -11,3 +11,8 @@ export const border = {
 export const button = {
 
 }
+
+export const loading = {
+    primary: '#ff7675',
+    primary_light:'#ffa8a4',
+}

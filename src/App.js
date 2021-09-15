@@ -4,14 +4,14 @@ import {
 } from './StyleApp'
 
 import FunctionBar from './components/FunctionBar/FunctionBar'
-import ImageOverview from './components/ImageOverview/ImageOverview'
+import ImagesOverview from './components/ImagesOverview/ImagesOverview'
 
 function App() {
   return (
     <StyledApp>
       <FunctionBar/>
       <MainPage>
-        <ImageOverview/>
+        <ImagesOverview/>
       </MainPage>
     </StyledApp>
   );

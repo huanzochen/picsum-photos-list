@@ -6,12 +6,12 @@ export const StyledApp = styled.div`
   box-sizing: border-box;
 }
 position: relative;
-height: 100%;
+height: auto;
 background: ${color.background};
 `
 
 export const MainPage = styled.div`
-height: 100%;
+height: auto;
 display: flex;
 justify-content: center;
 background: ${color.background};
