@@ -4,8 +4,6 @@ import {color, border, loading} from '../../utils/color'
 export const StyledImage = styled.div`
 margin-bottom: 20px;
 width: 100%;
-
-border: 1px solid ${border.primary};
 `
 
 export const Container = styled.div`
@@ -51,10 +49,24 @@ export const Img = styled.img`
 position: absolute;
 width: 100%;
 object-fit: contain;
-object-position: center center; 
 opacity: 0;
 
 &.isload{
     opacity: 1;
+}
+`
+
+export const Author = styled.div`
+width: 100%;
+height: 30px;
+background: ${color.second};
+
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items: center;
+
+& > div {
+  padding: 0px 5px 0px 5px;
 }
 `

@@ -6,7 +6,8 @@ import {
     StyledImage,
     Container,
     Img,
-    Mockup
+    Mockup,
+    Author
 } from './StyleImage'
 
 function Image({
@@ -37,6 +38,10 @@ function Image({
                     onLoad={handleOnLoad}
                     className={classNames({'isload': isOnLoad})}
                 />}
+                <Author>
+                    <div>Author:</div>
+                    <div>{author}</div>
+                </Author>
             </Container>
         </StyledImage>
     )
