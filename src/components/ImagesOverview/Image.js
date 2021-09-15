@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useSelector } from 'react-redux'
 import classNames from 'classnames';
 
 import { useIntersection } from '../hooks/useIntersection'
@@ -9,15 +10,14 @@ import {
     Mockup,
     Author
 } from './StyleImage'
+import { 
+    selectById
+} from './imagesSlice'
 
 function Image({
-    author,
-    width,
-    height,
-    url,
-    download_url
+    imageId
 }) {
-
+    const image = useSelector(state => selectById(state, imageId))
     const [isInView, setIsInView] = useState(false)
     const [isOnLoad, setIsOnLoad] = useState(false)
     const imgRef = useRef()
@@ -32,15 +32,15 @@ function Image({
     return(
         <StyledImage ref={imgRef}>
             <Container>
-                <Mockup width={width} height={height} className={classNames({'loading': !isOnLoad})}/>
+                <Mockup width={image.width} height={image.height} className={classNames({'loading': !isOnLoad})}/>
                 {isInView && <Img 
-                    src={download_url}
+                    src={image.download_url}
                     onLoad={handleOnLoad}
                     className={classNames({'isload': isOnLoad})}
                 />}
                 <Author>
                     <div>Author:</div>
-                    <div>{author}</div>
+                    <div>{image.author}</div>
                 </Author>
             </Container>
         </StyledImage>

@@ -3,7 +3,7 @@ import {color} from './utils/color'
 
 export const StyledApp = styled.div`
 *, *::before, *::after {
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 position: relative;
 height: auto;

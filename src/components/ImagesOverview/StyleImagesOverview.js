@@ -8,5 +8,5 @@ position: relative;
 display: flex;
 align-items: center;
 flex-direction: column;
-background: ${color.background}
+background: ${color.background};
 `

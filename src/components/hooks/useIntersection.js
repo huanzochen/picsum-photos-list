@@ -19,8 +19,8 @@ function getIntersectionObserver() {
     if(watcher === undefined){
         watcher = new IntersectionObserver(handleIntersection, {
             root: null,
-            rootMargin: '0px',
-            thresholds: [0.1]
+            rootMargin: '100px',
+            thresholds: [0]
         })
     }
     return watcher
