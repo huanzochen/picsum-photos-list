@@ -54,7 +54,7 @@ object-fit: contain;
 object-position: center center; 
 opacity: 0;
 
-    &.isload{
-        opacity: 1;
-    }
+&.isload{
+    opacity: 1;
+}
 `

@@ -1,6 +1,7 @@
-import { useState, useEffect,useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import classNames from 'classnames';
 
+import { useIntersection } from '../hooks/useIntersection'
 import {
     StyledImage,
     Container,
@@ -15,25 +16,27 @@ function Image({
     url,
     download_url
 }) {
-    const [isOnLoad, setIsOnLoad] = useState(false)
 
+    const [isInView, setIsInView] = useState(false)
+    const [isOnLoad, setIsOnLoad] = useState(false)
+    const imgRef = useRef()
+    useIntersection(imgRef, ()=>{
+        setIsInView(true)
+    })
 
     const handleOnLoad = () => {
-        console.log('仔入完畢!')
         setIsOnLoad(true)
     }
 
-
-
     return(
-        <StyledImage>
+        <StyledImage ref={imgRef}>
             <Container>
-                <Mockup width={width} height={height} className="loading"/>
-                <Img 
+                <Mockup width={width} height={height} className={classNames({'loading': !isOnLoad})}/>
+                {isInView && <Img 
                     src={download_url}
                     onLoad={handleOnLoad}
                     className={classNames({'isload': isOnLoad})}
-                />
+                />}
             </Container>
         </StyledImage>
     )
