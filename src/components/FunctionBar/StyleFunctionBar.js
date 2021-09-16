@@ -1,14 +1,23 @@
 import styled from 'styled-components'
+import {device} from '../../utils/device'
 import {color} from '../../utils/color'
 
 
 export const StyledFunctionBar = styled.div`
 position: fixed;
 top: 2%;
-left: 20%;
+left: 35%;
 height: 7%;
-width: 60%;
+width: 30%;
 z-index: 1000;
+
+@media ${device.mobileL} {
+    top: 2%;
+    left: 25%;
+    height: 6%;
+    width: 50%;
+}
+
 `
 
 export const Container = styled.div`
@@ -25,4 +34,14 @@ border-radius: 10px;
 export const Title = styled.div`
 color: ${color.second};
 font-size: 3.5vh;
+
+@media ${device.laptopL} {
+    font-size: 4.5vh;
+}
+
+@media ${device.mobileL} {
+    font-size: 3.5vh;
+}
+
+
 `

@@ -9,7 +9,7 @@ function FunctionBar(){
     return (
         <StyledFunctionBar>
             <Container> 
-                <Title>Hello World</Title>
+                <Title>My Photo List</Title>
             </Container>
         </StyledFunctionBar>
     )

@@ -19,14 +19,14 @@ function getIntersectionObserver() {
     if(watcher === undefined){
         watcher = new IntersectionObserver(handleIntersection, {
             root: null,
-            rootMargin: '100px',
+            rootMargin: '200px',
             thresholds: [0]
         })
     }
     return watcher
 }
 
-export function useIntersection(refElement, callback) {
+export function useLazyLoad(refElement, callback) {
     useEffect(()=>{
         let target = refElement.current
         let observer = getIntersectionObserver();
@@ -36,5 +36,5 @@ export function useIntersection(refElement, callback) {
             listenerCallbacks.delete(target)
             observer.unobserve(target)
         }
-    }, [])
+    }, [refElement, callback])
 }

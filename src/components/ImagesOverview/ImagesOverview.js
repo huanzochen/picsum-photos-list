@@ -1,38 +1,26 @@
 import { useState, useRef,useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { unwrapResult } from '@reduxjs/toolkit'
+import classNames from 'classnames';
 
-import {images} from '../../utils/mockData'
-import { useIntersection } from '../hooks/useIntersection'
+// import {images} from '../../utils/mockData'
 
 import Image from './Image'
 import { 
     fetchImages,
-    selectAll,
     selectIds,
-    selectById,
     nextPage
 } from './imagesSlice'
 import {
-    StyledImageOverview
+    StyledImageOverview,
+    LoadMore,
+    Blank
 } from './StyleImagesOverview'
 
 function ImageOverview () {
     const dispatch = useDispatch()
     const imagesStatus = useSelector(state=> state.images.imagesStatus)
-    const allImages = useSelector(selectAll)
     const allImagesId = useSelector(selectIds)
     const page = useSelector(state => state.images.page)
-
-    const [lastElement, setLastElement] = useState(null);
-    const observer = useRef(
-		new IntersectionObserver((entries) => {
-			const first = entries[0];
-			if (first.isIntersecting) {
-				dispatch(nextPage());
-			}
-		})
-	);
 
     useEffect(()=>{
         if(imagesStatus === 'idle'){
@@ -43,33 +31,43 @@ function ImageOverview () {
         }
     }, [page])
 
-    useEffect(() => {
-		const currentElement = lastElement;
-		const currentObserver = observer.current;
+    const [bottomElement, setBottomElement] = useState(null);
+    const observer = useRef(
+		new IntersectionObserver((entries) => {
+			const first = entries[0];
+			if (first.isIntersecting) {
+				dispatch(nextPage());
+			}
+		}, {rootMargin: '100px', thresholds:[0.1]})
+	);
 
+    useEffect(() => {
+		const currentElement = bottomElement;
+		const currentObserver = observer.current;
 		if (currentElement) {
 			currentObserver.observe(currentElement);
 		}
-
 		return () => {
 			if (currentElement) {
 				currentObserver.unobserve(currentElement);
 			}
 		};
-	}, [lastElement]);
+	}, [bottomElement]);
 
     let content
     content = allImagesId.map((imageId,i) =>{
         return <Image key={imageId} imageId={imageId} ></Image>
     })
-    content.push(<div key={"last"} ref={setLastElement}>Load More</div>)
-
-    console.log(content)
-    console.log(allImages)
-    console.log(`page=${page}`)
+    content.push(<LoadMore
+         key={"last"} 
+         ref={setBottomElement}
+         className={classNames({'loading': (imagesStatus === 'loading') ? true : false})}>
+         </LoadMore>
+         )
 
     return(
         <StyledImageOverview>
+            <Blank></Blank>
             {content}
         </StyledImageOverview>
     )

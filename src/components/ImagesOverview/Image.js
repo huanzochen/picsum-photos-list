@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import classNames from 'classnames';
 
-import { useIntersection } from '../hooks/useIntersection'
+import { useLazyLoad } from '../hooks/useLazyLoad'
 import {
     StyledImage,
     Container,
@@ -21,7 +21,7 @@ function Image({
     const [isInView, setIsInView] = useState(false)
     const [isOnLoad, setIsOnLoad] = useState(false)
     const imgRef = useRef()
-    useIntersection(imgRef, ()=>{
+    useLazyLoad(imgRef, ()=>{
         setIsInView(true)
     })
 

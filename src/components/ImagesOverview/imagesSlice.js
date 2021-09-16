@@ -10,7 +10,6 @@ const initialState = imagesAdapter.getInitialState({
 })
 
 export const fetchImages = createAsyncThunk('images/fetchImages', async(page = 1) => {
-    console.log(`page=${page}`)
     const response = await fetch(`https://picsum.photos/v2/list?page=${page}&limit=10`, {
         method: 'GET'
     })

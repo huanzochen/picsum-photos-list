@@ -5,11 +5,8 @@ export const color = {
 }
 
 export const border = {
-    primary: '#fd79a8',
-}
-
-export const button = {
-
+    primary: '#ff7675',
+    second: 'white'
 }
 
 export const loading = {

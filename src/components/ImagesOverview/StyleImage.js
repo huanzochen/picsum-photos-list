@@ -1,9 +1,14 @@
 import styled from 'styled-components'
-import {color, border, loading} from '../../utils/color'
+import {color, loading} from '../../utils/color'
 
 export const StyledImage = styled.div`
 margin-bottom: 20px;
 width: 100%;
+
+transition: box-shadow 0.3s ease-in;
+&:hover{
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+}
 `
 
 export const Container = styled.div`
@@ -50,6 +55,8 @@ position: absolute;
 width: 100%;
 object-fit: contain;
 opacity: 0;
+
+transition: opacity 0.6s ease-in; 
 
 &.isload{
     opacity: 1;
