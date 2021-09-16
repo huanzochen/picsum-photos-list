@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {device} from '../../utils/device'
 import {color, loading} from '../../utils/color'
 
 export const StyledImage = styled.div`
@@ -67,6 +68,7 @@ export const Author = styled.div`
 width: 100%;
 height: 30px;
 background: ${color.second};
+font-size: 15px;
 
 display: flex;
 flex-direction: row;
@@ -76,4 +78,13 @@ align-items: center;
 & > div {
   padding: 0px 5px 0px 5px;
 }
+
+@media ${device.mobileL} {
+    font-size: 15px;
+}
+
+@media ${device.mobileS} {
+    font-size: 10px;
+}
+
 `

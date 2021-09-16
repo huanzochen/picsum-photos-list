@@ -15,8 +15,16 @@ background: ${color.background};
     width: 40%
 }
 
+@media ${device.tablet} {
+    width: 70%
+}
+
 @media ${device.mobileL} {
     width: 70%
+}
+
+@media ${device.mobileS} {
+    width: 80%
 }
 `
 
@@ -28,8 +36,16 @@ padding-bottom: 30%;
     padding-bottom: 18%;
 }
 
+@media ${device.tablet} {
+    padding-bottom: 25%;
+}
+
 @media ${device.mobileL} {
     padding-bottom: 30%;
+}
+
+@media ${device.mobileS} {
+    padding-bottom: 40%;
 }
 `
 

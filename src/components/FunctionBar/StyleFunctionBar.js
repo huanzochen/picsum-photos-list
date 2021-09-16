@@ -11,6 +11,13 @@ height: 7%;
 width: 30%;
 z-index: 1000;
 
+@media ${device.tablet} {
+    top: 2%;
+    left: 25%;
+    height: 6%;
+    width: 50%;
+}
+
 @media ${device.mobileL} {
     top: 2%;
     left: 25%;
@@ -39,8 +46,16 @@ font-size: 3.5vh;
     font-size: 4.5vh;
 }
 
+@media ${device.tablet} {
+    font-size: 4vh;
+}
+
 @media ${device.mobileL} {
     font-size: 3.5vh;
+}
+
+@media ${device.mobileS} {
+    font-size: 2.5vh;
 }
 
 
