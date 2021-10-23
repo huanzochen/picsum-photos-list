@@ -44,6 +44,7 @@ function ImageOverview () {
     useEffect(() => {
 		const currentElement = bottomElement;
 		const currentObserver = observer.current;
+        console.log('The bottom LoadMore element has been observed!')
 		if (currentElement) {
 			currentObserver.observe(currentElement);
 		}

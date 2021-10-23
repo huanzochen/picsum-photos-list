@@ -1,0 +1,1 @@
+1. Why ImagesOverview bottom Elements will be observed two times?
